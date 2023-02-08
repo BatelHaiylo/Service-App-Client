@@ -2,8 +2,8 @@ import "./App.css";
 import { BrowserRouter } from "react-router-dom";
 import Footer from "./component/Footer/Footer";
 import Routing from "./AppRoute/Routing";
-import Navbar from "./component/Navbar/Navbar";
 import CategoryNavbar from "./component/Navbar/CategoryNavbar";
+import Cookies from "./component/pop/Cookies";
 
 export default function App() {
   const current = window.location.pathname;
@@ -12,9 +12,13 @@ export default function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        {/* <Navbar /> */}
         <CategoryNavbar bool={bool}/>
         <Routing />
+        {/* <Cookies style={{
+          position: 'sticky',
+          bottom:'0',
+          zIndex: '0',
+        }}/> */}
         <Footer />
       </BrowserRouter>
     </div>
