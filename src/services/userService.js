@@ -1,22 +1,22 @@
 import axios from "axios";
 import jwtInterceptor from "../middleware/auth";
 
-axios.defaults.baseURL = "http://lawmarket.us-east-1.elasticbeanstalk.com/user";
+axios.defaults.baseURL = "http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/user";
 
 export const getUsers = async () => {
-  const response = await axios.get("http://lawmarket.us-east-1.elasticbeanstalk.com/user")
+  const response = await axios.get("http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/user")
 
   const user = await response.data;
   return user;
 };
 export const registerUser= async (data) => {
-  const response = await axios.post("http://lawmarket.us-east-1.elasticbeanstalk.com/user/register",data);
+  const response = await axios.post("http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/user/register",data);
 
   const newLawyer = await response.data;
   return newLawyer;
 };
 export const updateUser = async (data,email) => {
-    const response = await axios.put(`http://lawmarket.us-east-1.elasticbeanstalk.com/user/${email}`,{
+    const response = await axios.put(`http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/user/${email}`,{
         firstName:data.firstName,
         lastName:data.lastName,
         image:data.image,
@@ -34,13 +34,13 @@ export const loginUser = async (data) => {
   };
 
   export const getUserByEmail = async (email) => {
-    const response = await axios.get(`http://lawmarket.us-east-1.elasticbeanstalk.com/user/${email}`);
+    const response = await axios.get(`http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/user/${email}`);
   
     const user = await response.data;
     return user;
   };
   export const deleteUser = async (email) => {
-    const response = await axios.delete(`http://lawmarket.us-east-1.elasticbeanstalk.com/user/${email}`);
+    const response = await axios.delete(`http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/user/${email}`);
   
     const user = await response.data;
     return user;
