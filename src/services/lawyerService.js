@@ -1,22 +1,22 @@
 import axios from "axios";
 
-// axios.defaults.baseURL = "http://localhost:6060/lawyer";
+axios.defaults.baseURL = "http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/lawyer";
 
 export const getLawyers = async () => {
-  const response = await axios.get("http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer")
+  const response = await axios.get("http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/lawyer")
 console.log(response);
   const lawyer = await response.data;
   return lawyer;
 };
 export const registerLawyer = async (data) => {
-  const response = await axios.post("http://localhost:6060/lawyer/register",data)
+  const response = await axios.post("http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/lawyer/register",data)
 
   const newLawyer = await response.data;
   return newLawyer;
 };
 
 export const loginLawyer = async (data) => {
-    const response = await axios.post("http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer/login",{
+    const response = await axios.post("http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/lawyer/login",{
         email:data.email,
         password:data.password
     })
@@ -26,12 +26,12 @@ export const loginLawyer = async (data) => {
   };
 
   export const getLawyerByEmail = async (email) => {
-    const response = await axios.get(`http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer/${email}`);
+    const response = await axios.get(`http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/lawyer/${email}`);
     const lawyer = await response.data;
     return lawyer;
   };
   export const deleteLawyer = async (email) => {
-    const response = await axios.delete(`http://lawmarket.us-east-1.elasticbeanstalk.com/lawyer/${email}`);
+    const response = await axios.delete(`http://serviceapp-env.eba-hb2wbzav.ap-northeast-1.elasticbeanstalk.com/lawyer/${email}`);
   
     const lawyer = await response.data;
     return lawyer;
